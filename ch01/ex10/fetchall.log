@@ -1,0 +1,12 @@
+CA1943:ex10 01012629$ ./fetchall https://golang.org http://gopl.io
+0.55s     4154  http://gopl.io
+0.73s     8449  https://golang.org
+0.73s elapsed
+CA1943:ex10 01012629$ ./fetchall https://golang.org http://gopl.io
+0.23s     4154  http://gopl.io
+0.39s     8449  https://golang.org
+0.39s elapsed
+CA1943:ex10 01012629$ diff golang.org_1  golang.org
+CA1943:ex10 01012629$ diff gopl.io_1  gopl.io
+CA1943:ex10 01012629$ 
+
