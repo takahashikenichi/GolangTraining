@@ -2,6 +2,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"math"
 )
@@ -23,10 +24,14 @@ func main() {
 		"width='%d' height='%d'>", width, height)
 	for i := 0; i < cells; i++ {
 		for j := 0; j < cells; j++ {
-			ax, ay := corner(i+1, j)
-			bx, by := corner(i, j)
-			cx, cy := corner(i, j+1)
-			dx, dy := corner(i+1, j+1)
+			ax, ay, error := corner(i+1, j)
+			if error != nil { continue }
+			bx, by, error := corner(i, j)
+			if error != nil { continue }
+			cx, cy, error := corner(i, j+1)
+			if error != nil { continue }
+			dx, dy, error := corner(i+1, j+1)
+			if error != nil { continue }
 			fmt.Printf("<polygon points='%g,%g %g,%g %g,%g %g,%g'/>\n",
 				ax, ay, bx, by, cx, cy, dx, dy)
 		}
@@ -34,7 +39,7 @@ func main() {
 	fmt.Println("</svg>")
 }
 
-func corner(i, j int) (float64, float64) {
+func corner(i, j int) (float64, float64, error) {
 	// Find point (x,y) at corner of cell (i,j).
 	x := xyrange * (float64(i)/cells - 0.5)
 	y := xyrange * (float64(j)/cells - 0.5)
@@ -43,13 +48,13 @@ func corner(i, j int) (float64, float64) {
 	z := f(x, y)
 
 	if math.IsNaN(z) || math.IsInf(z, 0) {
-		return 0, 0, errors.New("Invalid value :z")
+		return 0, 0, errors.New("Invalid value:z")
 	}
 
 	// Project (x,y,z) isometrically onto 2-D SVG canvas (sx,sy).
 	sx := width/2 + (x-y)*cos30*xyscale
 	sy := height/2 + (x+y)*sin30*xyscale - z*zscale
-	return sx, sy
+	return sx, sy, nil
 }
 
 func f(x, y float64) float64 {
