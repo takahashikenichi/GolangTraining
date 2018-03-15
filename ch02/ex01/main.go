@@ -8,4 +8,6 @@ import (
 
 func main() {
 	fmt.Println(tempconv.CToK(tempconv.FreezingC))
+	fmt.Println(tempconv.CToF(tempconv.FreezingC))
+	fmt.Println(tempconv.KToF(tempconv.AbsoluteZeroK))
 }
