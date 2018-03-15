@@ -24,4 +24,3 @@ func (p Pound) String() string {
 func (k KiloGram) String() string {
 	return fmt.Sprintf("%gkg", k)
 }
-					}
