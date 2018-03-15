@@ -7,7 +7,7 @@ import (
 //	"./src"
 	"github.com/takahashikenichi/GolangTraining/ch02/ex02/tempconv"
 	"github.com/takahashikenichi/GolangTraining/ch02/ex02/distconv"
-//	"github.com/takahashikenichi/GolangTraining/ch02/ex02/weightconv"
+	"github.com/takahashikenichi/GolangTraining/ch02/ex02/weightconv"
 )
 
 func main() {
@@ -37,6 +37,6 @@ func main() {
 		case "w":
 			p := weightconv.Pound(value)
 			k := weightconv.KiloGram(value)
-			fmt.Printf("%s = %s, %s = %s\n", p, weightconv.PToK(p), k, weightconv.PToK(p))
+			fmt.Printf("%s = %s, %s = %s\n", p, weightconv.PToK(p), k, weightconv.KToP(k))
 	}
 }

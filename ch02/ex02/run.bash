@@ -4,6 +4,6 @@ go get github.com/takahashikenichi/GolangTraining/ch02/ex02/weightconv
 
 go build main.go
 
-./go t 200
-./go d 200
-./go w 200
+./main t 200
+./main d 200
+./main w 200
