@@ -38,10 +38,11 @@ func PopCountByShift64(x uint64) int {
 }
 
 func PopCountByNewFormula(x uint64) int {
-	var bitCount uint64
-	for i := 0; i < 64; i++ {
-		bitCount += x>>uint(i) - x>>uint(i)&x>>uint(i)-1
+	count := 0
+	for x != 0 {
+		count++
+		x = x & (x - 1)
 	}
-	return int(bitCount)
+	return count
 }
 

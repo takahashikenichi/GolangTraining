@@ -22,7 +22,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		cycles = 5
 	} else {
 		cycles, _ = strconv.Atoi(param_cycles[0])
-	}	
+	}
 	lissajous(w, cycles)
 }
 

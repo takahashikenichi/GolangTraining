@@ -24,9 +24,9 @@ const (
 	blackIndex = 1
 	redIndex   = 2
 	greenIndex = 3
-	blueIndex  = 4 
-	yellowIndex = 5 
-	cyanIndex  = 6 
+	blueIndex  = 4
+	yellowIndex =5
+	cyanIndex  = 6
 	magentaIndex = 7
 )
 
