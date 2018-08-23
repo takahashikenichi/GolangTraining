@@ -1,2 +1,2 @@
 ftp localhost 8000
-
+get command.txt command_local.txt
